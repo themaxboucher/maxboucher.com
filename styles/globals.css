@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  background: #09090b;
+  color: #d4d4d8c5;
+}
+
+@layer components {
+  .heading-1 {
+    @apply font-semibold m-0 text-4xl text-zinc-50;
+  }
+  .heading-2 {
+    @apply font-semibold m-0 text-3xl text-zinc-50;
+  }
+  .heading-3 {
+    @apply font-semibold m-0 text-2xl text-zinc-50;
+  }
+  .heading-4 {
+    @apply font-semibold m-0 text-xl text-zinc-50;
+  }
+  .heading-5 {
+    @apply font-semibold m-0 text-sm text-zinc-50;
+  }
+  .heading-6 {
+    @apply font-semibold m-0 text-xs text-zinc-50;
+  }
+  .section-large {
+    @apply mx-auto w-full max-w-[82rem] sm:px-10 px-5 py-20;
+  }
+}
