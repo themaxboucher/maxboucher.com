@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IoIosDocument } from "react-icons/io";
 
 export default function Home() {
   return (
@@ -17,14 +19,20 @@ export default function Home() {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <div>
-          <ul>
+          <ul className="flex justify-center items-center gap-4">
             <li>
-              <a href="https://github.com/themaxboucher">Github</a>
+              <a href="https://github.com/themaxboucher">
+                <FaGithub className="size-8 text-slate-50" />
+              </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/maxboucher/">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/maxboucher/">
+                <FaLinkedin className="size-8 text-slate-50" />
+              </a>
             </li>
-            <li>Resume</li>
+            <li>
+              <IoIosDocument className="size-8 text-slate-50" />
+            </li>
           </ul>
         </div>
       </section>
