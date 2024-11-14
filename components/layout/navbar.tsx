@@ -12,17 +12,19 @@ export default function Navbar() {
           <li>
             <IconLink
               href="https://github.com/themaxboucher"
+              name="Github"
               icon={<FaGithub />}
             />
           </li>
           <li>
             <IconLink
               href="https://www.linkedin.com/in/maxboucher/"
+              name="LinkedIn"
               icon={<FaLinkedin />}
             />
           </li>
           <li>
-            <IconLink href="#" icon={<IoIosDocument />} />
+            <IconLink href="#" name="Resume" icon={<IoIosDocument />} />
           </li>
         </ul>
       </div>
