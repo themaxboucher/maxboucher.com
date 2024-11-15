@@ -92,7 +92,7 @@ export default function ProjectCard({
               Coming soon...
             </div>
           )}
-          <div className="absolute inset-0 z-30 size-full bg-gradient-to-t from-background to-transparent to-35%"></div>
+          <div className="absolute inset-0 z-30 size-full bg-gradient-to-t from-background to-transparent to-15% md:to-35%"></div>
         </div>
       </div>
     </Card>
