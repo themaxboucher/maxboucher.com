@@ -6,6 +6,7 @@ import {
   Source_Code_Pro as FontMono,
 } from "next/font/google";
 import { cn } from "@/lib/utils";
+import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -42,9 +43,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="absolute inset-0 -z-50 h-[50vh] w-full bg-gradient-to-br from-muted/10 to-transparent"></div>
-          <div className="absolute inset-0 -z-40 h-[50vh] w-full bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:25px_25px]"></div>
-          <div className="absolute inset-0 -z-30 h-[50vh] w-full bg-gradient-to-t from-background to-transparent to-50%"></div>
+          <div className="absolute inset-0 -z-50 h-[70vh] w-full bg-gradient-to-br from-muted/10 to-transparent"></div>
+          <AnimatedGridPattern
+            numSquares={20}
+            maxOpacity={0.05}
+            duration={3}
+            repeatDelay={1}
+            className={cn("absolute inset-x-0 h-[70vh] -z-40")}
+          />
+          <div className="absolute inset-0 -z-30 h-[70vh] w-full bg-gradient-to-t from-background to-transparent to-50%"></div>
+
           {children}
         </ThemeProvider>
       </body>
