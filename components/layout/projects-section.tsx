@@ -1,22 +1,26 @@
-import ProjectCard from "./project-card";
+import ProjectCard from "../project-card";
 import byttScreenshot from "@/public/images/best-yt-thumbnails.png";
 import rhScreenshot from "@/public/images/rick-hu.png";
 import ccaScreenshot from "@/public/images/ccathletics.png";
 import facScreenshot from "@/public/images/fifth-avenue-club.png";
 import tbScreenshot from "@/public/images/toolbox.png";
-import WWLogo from "./logos/projects/ww-logo";
-import RHLogo from "./logos/projects/rh-logo";
-import BYTTLogo from "./logos/projects/bytt-logo";
-import CCALogo from "./logos/projects/cca-logo";
-import FACLogo from "./logos/projects/fac-logo";
-import TBLogo from "./logos/projects/tb-logo";
+import WWLogo from "../logos/projects/ww-logo";
+import RHLogo from "../logos/projects/rh-logo";
+import BYTTLogo from "../logos/projects/bytt-logo";
+import CCALogo from "../logos/projects/cca-logo";
+import FACLogo from "../logos/projects/fac-logo";
+import TBLogo from "../logos/projects/tb-logo";
+import HyperText from "../ui/hyper-text";
 
 export default function ProjectsSection() {
   return (
     <section id="projects" className="section">
-      <h2 className="font-mono uppercase tracking-wide text-center mb-12 md:mb-16">
-        Projects
-      </h2>
+      <div className="w-full flex justify-center items-center mb-12 md:mb-16">
+        <HyperText
+          text="Projects"
+          className="font-mono uppercase tracking-wide text-center"
+        />
+      </div>
       <div className="flex flex-col justify-around gap-10 md:gap-20">
         <ProjectCard
           logo={<WWLogo />}

@@ -15,13 +15,17 @@ import TypeScriptLogo from "../logos/skills/typescript-logo";
 import VSCodeLogo from "../logos/skills/vscode-logo";
 import SkillBadge from "../skill-badge";
 import SkillsGrid from "../skills-grid";
+import HyperText from "../ui/hyper-text";
 
 export default function SkillsSection() {
   return (
     <section id="skills" className="section">
-      <h2 className="font-mono uppercase tracking-wide text-center mb-12 md:mb-16">
-        Skills
-      </h2>
+      <div className="w-full flex justify-center items-center mb-12 md:mb-16">
+        <HyperText
+          text="Skills"
+          className="font-mono uppercase tracking-wide text-center"
+        />
+      </div>
 
       <div className="mb-8">
         <h3 className="text-lg mb-4">Languages</h3>
