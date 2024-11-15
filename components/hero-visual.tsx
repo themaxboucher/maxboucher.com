@@ -37,7 +37,7 @@ export default function HeroVisual() {
   }
 
   return (
-    <div className="relative mx-auto w-48">
+    <div className="relative">
       <div
         className="relative overflow-hidden aspect-square w-48 min-w-48 rounded-lg shadow-2xl"
         style={{
@@ -55,6 +55,7 @@ export default function HeroVisual() {
           width={192}
           height={192}
           quality={100}
+          placeholder="blur"
           priority
         />
       </div>
@@ -71,6 +72,8 @@ export default function HeroVisual() {
         }}
         width={96}
         height={64}
+        quality={100}
+        placeholder="blur"
         priority
       />
       <Image
@@ -86,6 +89,8 @@ export default function HeroVisual() {
         }}
         width={80}
         height={112}
+        quality={100}
+        placeholder="blur"
         priority
       />
     </div>
