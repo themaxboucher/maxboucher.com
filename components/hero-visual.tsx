@@ -37,9 +37,9 @@ export default function HeroVisual() {
   }
 
   return (
-    <div className="relative mx-auto">
+    <div className="relative mx-auto w-48">
       <div
-        className="relative overflow-hidden aspect-square w-48 rounded-lg shadow-2xl"
+        className="relative overflow-hidden aspect-square w-48 min-w-48 rounded-lg shadow-2xl"
         style={{
           transform: `translate(${
             (position.x - window.innerWidth / 2) / 50
@@ -51,14 +51,16 @@ export default function HeroVisual() {
         <Image
           src={maxBoucher}
           alt="Max Boucher"
-          className="object-cover"
-          fill
+          className="object-cover absolute inset-0 size-full"
+          width={192}
+          height={192}
+          quality={100}
           priority
         />
       </div>
       <Image
         src={fishing}
-        alt="Banff"
+        alt="Fly Fishing at a the Highwood River in Alberta"
         className="absolute top-4 -left-9 object-cover w-24 h-16 rounded-md shadow-2xl"
         style={{
           transform: `translate(${
@@ -67,11 +69,13 @@ export default function HeroVisual() {
           transition: "transform 0.2s ease-out",
           willChange: "transform",
         }}
+        width={96}
+        height={64}
         priority
       />
       <Image
         src={coding}
-        alt="Banff"
+        alt="Coding HTML on a MacBook Pro"
         className="absolute -bottom-4 -right-7 object-cover w-20 h-28 rounded-md shadow-2xl"
         style={{
           transform: `translate(${
@@ -80,6 +84,8 @@ export default function HeroVisual() {
           transition: "transform 0.2s ease-out",
           willChange: "transform",
         }}
+        width={80}
+        height={112}
         priority
       />
     </div>

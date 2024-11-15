@@ -82,7 +82,9 @@ export default function ProjectCard({
           {image ? (
             <Image
               src={image}
-              alt="project"
+              alt={title}
+              width={512}
+              height={400}
               className="size-full object-cover object-top"
             ></Image>
           ) : (
