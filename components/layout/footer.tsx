@@ -1,8 +1,7 @@
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   return (
     <footer className="w-full max-w-5xl mx-auto py-6 px-10 lg:px-0 border-t border-border flex flex-col-reverse sm:flex-row justify-between items-center gap-4 text-xs text-center sm:text-left">
-      <div>Copyright © {currentYear} Maxime Boucher</div>
+      <div>Copyright © 2025 Maxime Boucher</div>
       <p>
         Built with{" "}
         <a
