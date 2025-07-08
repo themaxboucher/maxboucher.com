@@ -1,5 +1,6 @@
-import { FaMoneyBillWave } from "react-icons/fa";
+import Image from "next/image";
+import wwLogo from "@/public/images/walletwiz-logo.svg";
 
 export default function WWLogo() {
-  return <FaMoneyBillWave className="text-green-500 size-7" />;
+  return <Image src={wwLogo} alt="Wallet Wiz Logo" width={29} height={29} />;
 }

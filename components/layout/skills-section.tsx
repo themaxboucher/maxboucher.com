@@ -6,7 +6,6 @@ import HTMLLogo from "../logos/skills/html-logo";
 import JavaScriptLogo from "../logos/skills/javascript-logo";
 import NextLogo from "../logos/skills/next-logo";
 import NodeLogo from "../logos/skills/node-logo";
-import NPMLogo from "../logos/skills/npm-logo";
 import PythonLogo from "../logos/skills/python-logo";
 import ReactLogo from "../logos/skills/react-logo";
 import SQLiteLogo from "../logos/skills/sqlite-logo";
@@ -17,6 +16,7 @@ import SkillBadge from "../skill-badge";
 import SkillsGrid from "../skills-grid";
 import BlurFade from "../ui/blur-fade";
 import HyperText from "../ui/hyper-text";
+import CursorLogo from "../logos/skills/cursor-logo";
 
 export default function SkillsSection() {
   return (
@@ -74,6 +74,13 @@ export default function SkillsSection() {
             <li>
               <SkillBadge icon={<NextLogo />} name="Next.js" color="#ffffff" />
             </li>
+            <li>
+              <SkillBadge
+                icon={<ReactLogo />}
+                name="React Native"
+                color="#61dafb"
+              />
+            </li>
           </SkillsGrid>
         </div>
       </BlurFade>
@@ -81,6 +88,9 @@ export default function SkillsSection() {
         <div className="mb-8">
           <h3 className="text-lg mb-4">Tools</h3>
           <SkillsGrid>
+            <li>
+              <SkillBadge icon={<CursorLogo />} name="Cursor" color="#FFFFFF" />
+            </li>
             <li>
               <SkillBadge
                 icon={<VSCodeLogo />}
@@ -90,9 +100,6 @@ export default function SkillsSection() {
             </li>
             <li>
               <SkillBadge icon={<NodeLogo />} name="Node.js" color="#6FA660" />
-            </li>
-            <li>
-              <SkillBadge icon={<NPMLogo />} name="NPM" color="#d50000" />
             </li>
             <li>
               <SkillBadge icon={<GitLogo />} name="Git" color="#F4511E" />

@@ -1,8 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import Image, { StaticImageData } from "next/image";
-import { FaCalendar, FaGithub } from "react-icons/fa";
-import { Badge } from "./ui/badge";
+import { FaGithub } from "react-icons/fa";
 
 interface ProjectCard {
   logo?: React.ReactNode;
@@ -34,19 +33,6 @@ export default function ProjectCard({
             </div>
             <div>
               <CardTitle className="text-foreground pb-2">{title}</CardTitle>
-              <Badge className="text-foreground bg-muted/40 border-border rounded-lg text-xs capitalize hover:bg-muted/40 w-fit">
-                {date ? (
-                  <>
-                    <FaCalendar className="size-[0.65rem] mr-[0.4rem] mb-[0.05rem] text-primary" />
-                    {date}
-                  </>
-                ) : (
-                  <>
-                    <span className="size-2 rounded-full bg-primary mr-[0.4rem]"></span>
-                    In Progress
-                  </>
-                )}
-              </Badge>
             </div>
           </CardHeader>
           <CardContent className="px-2 md:px-6">
@@ -71,7 +57,7 @@ export default function ProjectCard({
           </CardContent>
         </div>
 
-        <div className="md:absolute md:bottom-[-20%] md:left-[50%] lg:right-[-2rem] w-full aspect-square md:w-[32rem] md:h-[25rem] md:-rotate-3 bg-muted/50 rounded-t-xl lg:rounded-b-xl overflow-hidden border border-border shadow-xl md:group-hover:-translate-y-4 transition-all duration-300 ease-out">
+        <div className="md:absolute md:bottom-[-22%] md:left-[50%] lg:right-[-2rem] w-full aspect-square md:w-[32rem] md:h-[25rem] md:-rotate-3 bg-muted/50 rounded-t-xl lg:rounded-b-xl overflow-hidden border border-border shadow-xl md:group-hover:-translate-y-4 transition-all duration-300 ease-out">
           <div className="bg-muted/50 border-b border-border py-2 md:py-3 px-3 md:px-4 shadow-lg flex">
             <div className="flex justify-start items-center gap-[0.3rem]">
               <div className="size-2 rounded-full bg-red-500"></div>

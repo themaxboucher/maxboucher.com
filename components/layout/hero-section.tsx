@@ -19,21 +19,21 @@ export default function HeroSection() {
           </BlurFade>
           <BlurFade delay={0.3} inView>
             <p className="text-lg">
-              I am a 1st year engineering student at the{" "}
-              <EmojiCursor emoji="🇨🇦">University of Calgary</EmojiCursor>. I’m
-              passionate about{" "}
-              <a
-                href="#skills"
-                className="text-foreground hover:text-primary transition-all duration-200 ease-out"
-              >
-                full stack web development
-              </a>{" "}
-              and building{" "}
+              I am a software engineering student at the{" "}
+              <EmojiCursor emoji="🇨🇦">University of Calgary</EmojiCursor>. I
+              love building{" "}
               <a
                 href="#projects"
                 className="text-foreground hover:text-primary transition-all duration-200 ease-out"
               >
-                cool projects
+                useful projects
+              </a>{" "}
+              and am currently working on{" "}
+              <a
+                href="https://www.walletwiz.io/"
+                className="text-foreground hover:text-primary transition-all duration-200 ease-out"
+              >
+                WalletWiz
               </a>
               . I also enjoy <EmojiCursor emoji="🎧">podcasts</EmojiCursor>,{" "}
               <EmojiCursor emoji="🐟">fly fishing</EmojiCursor>, and{" "}

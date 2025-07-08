@@ -30,6 +30,7 @@ export default function ProjectsSection() {
             logo={<WWLogo />}
             title="WalletWiz"
             description="Income and expenses tracker that makes budgeting easy."
+            url="https://www.walletwiz.io/"
             github="https://github.com/themaxboucher/walletwiz"
           />
         </BlurFade>

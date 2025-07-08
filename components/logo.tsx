@@ -7,7 +7,7 @@ export default function Logo() {
       className="cursor-pointer hover:opacity-80 transition-all duration-200 ease-out"
     >
       <h1 className="text-foreground font-semibold">Max Boucher</h1>
-      <p className=" text-xs">1st Year Enginering @ U of C</p>
+      <p className=" text-xs">SWE @ U of C</p>
     </Link>
   );
 }
