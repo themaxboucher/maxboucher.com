@@ -1,4 +1,5 @@
 import ProjectCard from "../project-card";
+import wwScreenshot from "@/public/images/walletwiz.png";
 import byttScreenshot from "@/public/images/best-yt-thumbnails.png";
 import rhScreenshot from "@/public/images/rick-hu.png";
 import ccaScreenshot from "@/public/images/ccathletics.png";
@@ -30,6 +31,7 @@ export default function ProjectsSection() {
             description="Income and expenses tracker that makes budgeting easy."
             url="https://www.walletwiz.io/"
             github="https://github.com/themaxboucher/walletwiz"
+            image={wwScreenshot}
           />
         </BlurFade>
         <BlurFade inView>
