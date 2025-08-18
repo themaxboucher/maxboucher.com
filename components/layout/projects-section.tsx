@@ -3,13 +3,11 @@ import byttScreenshot from "@/public/images/best-yt-thumbnails.png";
 import rhScreenshot from "@/public/images/rick-hu.png";
 import ccaScreenshot from "@/public/images/ccathletics.png";
 import facScreenshot from "@/public/images/fifth-avenue-club.png";
-import tbScreenshot from "@/public/images/toolbox.png";
 import WWLogo from "../logos/projects/ww-logo";
 import RHLogo from "../logos/projects/rh-logo";
 import BYTTLogo from "../logos/projects/bytt-logo";
 import CCALogo from "../logos/projects/cca-logo";
 import FACLogo from "../logos/projects/fac-logo";
-import TBLogo from "../logos/projects/tb-logo";
 import HyperText from "../ui/hyper-text";
 import BlurFade from "../ui/blur-fade";
 
@@ -73,17 +71,6 @@ export default function ProjectsSection() {
             description="Marketing website for a downtown Calgary fitness club."
             url="https://www.fifthavenueclub.ca/"
             image={facScreenshot}
-          />
-        </BlurFade>
-        <BlurFade inView>
-          <ProjectCard
-            logo={<TBLogo />}
-            title="Toolbox"
-            date="Aug 2023"
-            description="Directory website for AI apps and tools built with React.js."
-            url="https://toolbox-phi-three.vercel.app/"
-            github={"https://github.com/themaxboucher/ToolBox"}
-            image={tbScreenshot}
           />
         </BlurFade>
       </div>
