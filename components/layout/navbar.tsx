@@ -24,7 +24,11 @@ export default function Navbar() {
             />
           </li>
           <li>
-            <IconLink href="#" name="Resume" icon={<IoIosDocument />} />
+            <IconLink
+              href="https://drive.google.com/file/d/1_f7xeCfHoettHV9JRdfi-U84JHI1RYkF/view?usp=sharing"
+              name="Resume"
+              icon={<IoIosDocument />}
+            />
           </li>
         </ul>
       </div>
