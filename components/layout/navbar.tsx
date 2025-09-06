@@ -25,7 +25,7 @@ export default function Navbar() {
           </li>
           <li>
             <IconLink
-              href="https://drive.google.com/file/d/1_f7xeCfHoettHV9JRdfi-U84JHI1RYkF/view?usp=sharing"
+              href="https://drive.google.com/file/d/1H7409USL8zmPCu1lcsioViUcJWMpcpSU/view?usp=sharing"
               name="Resume"
               icon={<IoIosDocument />}
             />
