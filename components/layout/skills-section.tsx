@@ -17,6 +17,9 @@ import SkillsGrid from "../skills-grid";
 import BlurFade from "../ui/blur-fade";
 import HyperText from "../ui/hyper-text";
 import CursorLogo from "../logos/skills/cursor-logo";
+import CPPLogo from "../logos/skills/cpp-logo";
+import CLogo from "../logos/skills/c-logo";
+import MySQLLogo from "../logos/skills/mysql-logo";
 
 export default function SkillsSection() {
   return (
@@ -50,6 +53,12 @@ export default function SkillsSection() {
             </li>
             <li>
               <SkillBadge icon={<PythonLogo />} name="Python" color="#0277BD" />
+            </li>
+            <li>
+              <SkillBadge icon={<CLogo />} name="C" color="#015796" />
+            </li>
+            <li>
+              <SkillBadge icon={<CPPLogo />} name="C++" color="#015796" />
             </li>
             <li>
               <SkillBadge icon={<HTMLLogo />} name="HTML" color="#E65100" />
@@ -110,6 +119,9 @@ export default function SkillsSection() {
                 name="Github"
                 color="#ffffff"
               />
+            </li>
+            <li>
+              <SkillBadge icon={<MySQLLogo />} name="MySQL" color="#01678d" />
             </li>
             <li>
               <SkillBadge icon={<SQLiteLogo />} name="SQLite" color="#0b7fcc" />
