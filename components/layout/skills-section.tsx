@@ -21,6 +21,7 @@ import CPPLogo from "../logos/skills/cpp-logo";
 import CLogo from "../logos/skills/c-logo";
 import MySQLLogo from "../logos/skills/mysql-logo";
 import PostgreSQLLogo from "../logos/skills/postgresql-logo";
+import JavaLogo from "../logos/skills/java-logo";
 
 export default function SkillsSection() {
   return (
@@ -60,6 +61,9 @@ export default function SkillsSection() {
             </li>
             <li>
               <SkillBadge icon={<CPPLogo />} name="C++" color="#015796" />
+            </li>
+            <li>
+              <SkillBadge icon={<JavaLogo />} name="Java" color="#4e7896" />
             </li>
             <li>
               <SkillBadge icon={<HTMLLogo />} name="HTML" color="#E65100" />
