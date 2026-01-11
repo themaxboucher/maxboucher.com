@@ -26,18 +26,18 @@ export default function HeroSection() {
                 href="#projects"
                 className="text-foreground hover:text-primary transition-all duration-200 ease-out"
               >
-                useful projects
+                projects
               </a>{" "}
               and am currently working on{" "}
               <a
-                href="https://www.walletwiz.io/"
+                href="https://www.coursecal.com/"
                 className="text-foreground hover:text-primary transition-all duration-200 ease-out"
               >
-                WalletWiz
+                CourseCal
               </a>
               . I also enjoy <EmojiCursor emoji="🎧">podcasts</EmojiCursor>,{" "}
               <EmojiCursor emoji="🐟">fly fishing</EmojiCursor>, and{" "}
-              <EmojiCursor emoji="💪">working out</EmojiCursor>.
+              <EmojiCursor emoji="💪">lifting</EmojiCursor>.
             </p>
           </BlurFade>
         </div>

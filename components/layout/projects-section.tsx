@@ -4,6 +4,8 @@ import byttScreenshot from "@/public/images/best-yt-thumbnails.png";
 import rhScreenshot from "@/public/images/rick-hu.png";
 import ccaScreenshot from "@/public/images/ccathletics.png";
 import facScreenshot from "@/public/images/fifth-avenue-club.png";
+import coursecalScreenshot from "@/public/images/coursecal.png";
+import e2eeNotesScreenshot from "@/public/images/e2ee-notes.png";
 import WWLogo from "../logos/projects/ww-logo";
 import RHLogo from "../logos/projects/rh-logo";
 import BYTTLogo from "../logos/projects/bytt-logo";
@@ -11,6 +13,8 @@ import CCALogo from "../logos/projects/cca-logo";
 import FACLogo from "../logos/projects/fac-logo";
 import HyperText from "../ui/hyper-text";
 import BlurFade from "../ui/blur-fade";
+import CourseCalLogo from "../logos/projects/cc-logo";
+import E2EENotesLogo from "../logos/projects/e2ee-logo";
 
 export default function ProjectsSection() {
   return (
@@ -24,6 +28,26 @@ export default function ProjectsSection() {
         </div>
       </BlurFade>
       <div className="flex flex-col justify-around gap-10 md:gap-20">
+        <BlurFade inView>
+          <ProjectCard
+            logo={<CourseCalLogo />}
+            title="CourseCal"
+            description="Get a lock screen wallpaper of your uni schedule."
+            url="https://www.coursecal.com/"
+            github="https://github.com/themaxboucher/CourseCal"
+            image={coursecalScreenshot}
+          />
+        </BlurFade>
+        <BlurFade inView>
+          <ProjectCard
+            logo={<E2EENotesLogo />}
+            title="E2EE Notes"
+            description="End-to-end encrypted notes web app."
+            url="https://e2ee-notes.vercel.app/"
+            github="https://github.com/themaxboucher/e2ee-notes"
+            image={e2eeNotesScreenshot}
+          />
+        </BlurFade>
         <BlurFade inView>
           <ProjectCard
             logo={<WWLogo />}
