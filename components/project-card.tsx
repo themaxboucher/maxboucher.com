@@ -25,7 +25,7 @@ export default function ProjectCard({
   return (
     <Card className="text-zinc-400/80 rounded-3xl px-8 pt-8 pb-0 md:pb-8 md:hover:scale-[103%] bg-background overflow-hidden md:hover:shadow-lg transition-all duration-300 ease-out relative group md:hover:border-muted-foreground/30">
       <div className="absolute inset-0 -z-20 size-full bg-gradient-to-tl from-muted/0 to-muted/20 opacity-0 md:group-hover:opacity-100 transition-all duration-300 ease-out"></div>
-      <div className="grid gird-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="md:max-w-xs">
           <CardHeader className="px-2 pt-4 md:px-6 pb-4">
             <div className="size-11 bg-muted-foreground/10 rounded-lg mb-6 flex justify-center items-center border border-border">
@@ -78,7 +78,7 @@ export default function ProjectCard({
               Coming soon...
             </div>
           )}
-          <div className="absolute inset-0 z-30 size-full bg-gradient-to-t from-background to-transparent to-15% md:to-35%"></div>
+          <div className="pointer-events-none absolute inset-0 z-30 size-full bg-gradient-to-t from-background to-transparent to-15% md:to-35%"></div>
         </div>
       </div>
     </Card>
