@@ -11,7 +11,6 @@ import ReactLogo from "../logos/skills/react-logo";
 import SQLiteLogo from "../logos/skills/sqlite-logo";
 import SupabaseLogo from "../logos/skills/supabase-logo";
 import TypeScriptLogo from "../logos/skills/typescript-logo";
-import VSCodeLogo from "../logos/skills/vscode-logo";
 import SkillBadge from "../skill-badge";
 import SkillsGrid from "../skills-grid";
 import BlurFade from "../ui/blur-fade";
@@ -22,6 +21,9 @@ import CLogo from "../logos/skills/c-logo";
 import MySQLLogo from "../logos/skills/mysql-logo";
 import PostgreSQLLogo from "../logos/skills/postgresql-logo";
 import JavaLogo from "../logos/skills/java-logo";
+import ClaudeCodeLogo from "../logos/skills/claude-code-logo";
+import PyTorchLogo from "../logos/skills/pytorch-logo";
+import CUDALogo from "../logos/skills/cuda-logo";
 
 export default function SkillsSection() {
   return (
@@ -40,6 +42,9 @@ export default function SkillsSection() {
           <h3 className="text-lg mb-4">Languages</h3>
           <SkillsGrid>
             <li>
+              <SkillBadge icon={<PythonLogo />} name="Python" color="#0277BD" />
+            </li>
+            <li>
               <SkillBadge
                 icon={<JavaScriptLogo />}
                 name="JavaScript"
@@ -52,9 +57,6 @@ export default function SkillsSection() {
                 name="TypeScript"
                 color="#1976d2"
               />
-            </li>
-            <li>
-              <SkillBadge icon={<PythonLogo />} name="Python" color="#0277BD" />
             </li>
             <li>
               <SkillBadge icon={<CLogo />} name="C" color="#015796" />
@@ -76,7 +78,7 @@ export default function SkillsSection() {
       </BlurFade>
       <BlurFade inView>
         <div className="mb-8">
-          <h3 className="text-lg mb-4">Frameworks</h3>
+          <h3 className="text-lg mb-4">Frameworks and Libraries</h3>
           <SkillsGrid>
             <li>
               <SkillBadge
@@ -88,45 +90,36 @@ export default function SkillsSection() {
             <li>
               <SkillBadge icon={<NextLogo />} name="Next.js" color="#ffffff" />
             </li>
-            <li>
+            {/* <li>
               <SkillBadge
                 icon={<ReactLogo />}
                 name="React Native"
                 color="#61dafb"
               />
+            </li> */}
+            <li>
+              <SkillBadge
+                icon={<PyTorchLogo />}
+                name="PyTorch"
+                color="#EE4C2C"
+              />
+            </li>
+            <li>
+              <SkillBadge icon={<CUDALogo />} name="CUDA" color="#76B900" />
             </li>
           </SkillsGrid>
         </div>
       </BlurFade>
       <BlurFade inView>
         <div className="mb-8">
-          <h3 className="text-lg mb-4">Tools</h3>
+          <h3 className="text-lg mb-4">Databases</h3>
           <SkillsGrid>
             <li>
-              <SkillBadge icon={<CursorLogo />} name="Cursor" color="#FFFFFF" />
-            </li>
-            <li>
               <SkillBadge
-                icon={<VSCodeLogo />}
-                name="VS Code"
-                color="#29b6f6"
+                icon={<PostgreSQLLogo />}
+                name="PostgreSQL"
+                color="#3b6c94"
               />
-            </li>
-            <li>
-              <SkillBadge icon={<NodeLogo />} name="Node.js" color="#6FA660" />
-            </li>
-            <li>
-              <SkillBadge icon={<GitLogo />} name="Git" color="#F4511E" />
-            </li>
-            <li>
-              <SkillBadge
-                icon={<GithHubLogo />}
-                name="Github"
-                color="#ffffff"
-              />
-            </li>
-            <li>
-              <SkillBadge icon={<PostgreSQLLogo />} name="PostgreSQL" color="#3b6c94" />
             </li>
             <li>
               <SkillBadge icon={<MySQLLogo />} name="MySQL" color="#01678d" />
@@ -146,6 +139,33 @@ export default function SkillsSection() {
                 icon={<SupabaseLogo />}
                 name="Supabase"
                 color="#3ed18f"
+              />
+            </li>
+          </SkillsGrid>
+        </div>
+      </BlurFade>
+      <BlurFade inView>
+        <div className="mb-8">
+          <h3 className="text-lg mb-4">Developer Tools</h3>
+          <SkillsGrid>
+            <li>
+              <SkillBadge
+                icon={<ClaudeCodeLogo />}
+                name="Claude Code"
+                color="#D97757"
+              />
+            </li>
+            <li>
+              <SkillBadge icon={<CursorLogo />} name="Cursor" color="#FFFFFF" />
+            </li>
+            <li>
+              <SkillBadge icon={<GitLogo />} name="Git" color="#F4511E" />
+            </li>
+            <li>
+              <SkillBadge
+                icon={<GithHubLogo />}
+                name="Github"
+                color="#ffffff"
               />
             </li>
           </SkillsGrid>
