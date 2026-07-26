@@ -3,7 +3,7 @@ import React from "react";
 interface IconLink {
   href: string;
   name: string;
-  icon: React.ReactElement;
+  icon: React.ReactElement<{ className?: string }>;
 }
 
 export default function IconLink({ href, name, icon }: IconLink) {

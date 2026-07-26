@@ -9,12 +9,12 @@ import { cn } from "@/lib/utils";
 
 const fontSans = FontSans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
 });
 
 const fontMono = FontMono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-source-code-pro",
 });
 
 export const metadata: Metadata = {
@@ -28,10 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen max-w-full overflow-x-hidden bg-background font-sans antialiased",
+          "min-h-screen max-w-full overflow-x-hidden antialiased",
           fontSans.variable,
           fontMono.variable,
         )}
