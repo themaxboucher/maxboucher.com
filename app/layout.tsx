@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
-import "../styles/globals.css";
+import "./globals.css";
 import {
   Inter as FontSans,
   Source_Code_Pro as FontMono,
