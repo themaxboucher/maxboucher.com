@@ -166,7 +166,7 @@
     @apply font-semibold m-0 text-xs text-foreground;
   }
   .section {
-    @apply mx-auto w-full max-w-6xl px-5 py-12 sm:px-10 md:py-20;
+    @apply mx-auto w-full max-w-[68rem] px-5 py-12 sm:px-10 md:py-20;
   }
 }
 
@@ -177,4 +177,8 @@
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
   }
+}
+  ::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }
