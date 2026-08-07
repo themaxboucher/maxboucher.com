@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { HoverPlayContext } from "./hover-play-card";
 
 export function AutoVideo({
   className,
@@ -10,6 +11,8 @@ export function AutoVideo({
   ...props
 }: React.ComponentProps<"video"> & { src: string }) {
   const ref = React.useRef<HTMLVideoElement>(null);
+  // null outside a HoverPlayCard: nothing gates playback, so the video runs.
+  const hovered = React.useContext(HoverPlayContext);
 
   React.useEffect(() => {
     const video = ref.current;
@@ -19,23 +22,29 @@ export function AutoVideo({
     // and an unmuted video is not allowed to autoplay.
     video.muted = true;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      video.pause();
-    }
-  }, []);
+    const still =
+      hovered === false ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // pause() leaves currentTime where it is, so hovering back on picks the
+    // clip up mid-frame rather than restarting it.
+    if (still) video.pause();
+    // Rejects when a later pause interrupts the play — nothing to recover from.
+    else void video.play().catch(() => {});
+  }, [hovered]);
 
   return (
     <video
       ref={ref}
+      autoPlay={hovered === null}
       src={src}
-      autoPlay
       loop
       muted
       playsInline
-      preload="metadata"
+      preload="auto"
       aria-hidden
       tabIndex={-1}
-      className={cn("size-full bg-muted object-cover", className)}
+      className={cn("size-full bg-muted object-cover border shadow shadow-zinc-900/5", className)}
       {...props}
     />
   );
