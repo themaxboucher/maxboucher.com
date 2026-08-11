@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-import { HoverPlayContext } from "./hover-play-card";
+import { useHoverPlaying } from "./hover-play-card";
 
 const LAYER_SIZES = [4, 5, 5, 3];
 const LAYER_X = [32, 78, 124, 170];
@@ -132,8 +132,8 @@ function usePlaying(hovered: boolean) {
 }
 
 export function NetworkPreview() {
-  // The effect animates when the card is hovered on
-  const hovered = React.useContext(HoverPlayContext) ?? false;
+  // The effect animates when the card is hovered on, and always on small screens
+  const hovered = useHoverPlaying() ?? false;
   const playing = usePlaying(hovered);
 
   // Only the way out is eased. The pass is timed to be underway the instant it

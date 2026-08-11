@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { HoverPlayContext } from "./hover-play-card";
+import { useHoverPlaying } from "./hover-play-card";
 
 export function AutoVideo({
   className,
@@ -12,7 +12,7 @@ export function AutoVideo({
 }: React.ComponentProps<"video"> & { src: string }) {
   const ref = React.useRef<HTMLVideoElement>(null);
   // null outside a HoverPlayCard: nothing gates playback, so the video runs.
-  const hovered = React.useContext(HoverPlayContext);
+  const hovered = useHoverPlaying();
 
   React.useEffect(() => {
     const video = ref.current;
