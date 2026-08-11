@@ -43,7 +43,9 @@ function weight(gap: number, from: number, to: number) {
   let h = Math.imul(gap * 1009 + from * 61 + to + 1, 0x9e3779b1);
   h = Math.imul(h ^ (h >>> 15), 0x85ebca6b);
   const unit = ((h ^ (h >>> 13)) >>> 0) / 2 ** 32;
-  return Math.round((WEAKEST + (STRONGEST - WEAKEST) * unit ** 1.6) * 1e4) / 1e4;
+  return (
+    Math.round((WEAKEST + (STRONGEST - WEAKEST) * unit ** 1.6) * 1e4) / 1e4
+  );
 }
 
 const layers = LAYER_SIZES.map((size, i) => ({
@@ -112,7 +114,6 @@ const firesAt = layers.map((_, i) =>
 const live = "opacity-0 [stroke-dasharray:100_100] motion-reduce:animate-none";
 const flash = "opacity-0 motion-reduce:animate-none";
 
-
 const FADE = 500; // How long the step takes to settle after hover out.
 
 function usePlaying(hovered: boolean) {
@@ -148,16 +149,7 @@ export function NetworkPreview() {
 
   return (
     <div className="flex h-full items-center justify-center">
-      <svg
-        // Cropped tight to the network so it fills the card at this density.
-        viewBox="18 8 164 80"
-        fill="none"
-        // No non-scaling-stroke here: it makes the browser measure dashes in
-        // screen units while pathLength normalises in user units, which leaves
-        // every edge lighting up only part way. Widths are in user units, and
-        // the viewBox scales 1:2.
-        className="h-full w-full"
-      >
+      <svg viewBox="18 4 164 88" fill="none" className="h-full w-full">
         <g className="stroke-foreground/9" strokeWidth="0.5">
           {allEdges.map((edge, i) => (
             <path key={i} d={edge.d} />

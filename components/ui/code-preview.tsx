@@ -77,7 +77,7 @@ export function CodePreview({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className="absolute top-2 left-6 overflow-hidden rounded-md bg-white ring-1 ring-[#d0d7de] shadow group-hover/card:-translate-y-1.5 group-hover/card:-translate-x-1 hover:shadow-xl transition duration-200 ease-out dark:bg-[#0d1117] dark:ring-[#30363d]">
+      <div className="absolute top-2 left-6 overflow-hidden rounded-md bg-white ring-1 ring-[#d0d7de] shadow group-hover/card:-translate-y-1.5 group-hover/card:-translate-x-1 group-hover/card:shadow-xl transition duration-200 ease-out dark:bg-[#0d1117] dark:ring-[#30363d]">
         <div className="border-b border-[#d0d7de] bg-[#f6f8fa] px-2.5 pb-1 pt-0.5 dark:border-[#21262d] dark:bg-[#161b22]">
           <span className="font-mono text-[8px] leading-none text-[#6e7781] dark:text-[#8b949e]">
             {FILE_NAME}

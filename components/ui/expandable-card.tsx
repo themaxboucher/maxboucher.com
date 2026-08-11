@@ -176,7 +176,7 @@ export function ExpandableCard({
                   transition={OPEN_TRANSITION}
                   role="dialog"
                   aria-modal
-                  className="pointer-events-auto group/card flex flex-col gap-(--card-gap) shadow-lg shadow-zinc-900/5 ring-1 ring-border rounded-3xl overflow-hidden bg-linear-to-br from-card to-card/90 backdrop-blur-sm py-(--card-spacing) text-sm text-card-foreground relative max-h-[86vh] w-full max-w-5xl overflow-y-auto no-scrollbar [--card-gap:--spacing(6)] [--card-spacing:--spacing(10)]"
+                  className="pointer-events-auto flex flex-col gap-(--card-gap) shadow-lg shadow-zinc-900/5 ring-1 ring-border rounded-3xl overflow-hidden bg-linear-to-br from-card to-card/90 backdrop-blur-sm py-(--card-spacing) text-sm text-card-foreground relative max-h-[86vh] w-full max-w-5xl overflow-y-auto no-scrollbar [--card-gap:--spacing(6)] [--card-spacing:--spacing(10)]"
                 >
                   <button
                     type="button"
