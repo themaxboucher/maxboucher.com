@@ -176,30 +176,32 @@ export function ExpandableCard({
                   transition={OPEN_TRANSITION}
                   role="dialog"
                   aria-modal
-                  className="pointer-events-auto flex flex-col gap-(--card-gap) shadow-lg shadow-zinc-900/5 ring-1 ring-border rounded-3xl overflow-hidden bg-linear-to-br from-card to-card/90 backdrop-blur-sm py-(--card-spacing) text-sm text-card-foreground relative max-h-[86vh] w-full max-w-5xl overflow-y-auto no-scrollbar [--card-gap:--spacing(6)] [--card-spacing:--spacing(10)]"
+                  className="pointer-events-auto flex flex-col shadow-lg shadow-zinc-900/5 ring-1 ring-border rounded-3xl overflow-hidden bg-linear-to-br from-card to-card/90 backdrop-blur-sm text-sm text-card-foreground relative max-h-[86vh] w-full max-w-5xl [--card-gap:--spacing(6)] [--card-spacing:--spacing(10)]"
                 >
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
                     aria-label="Close"
-                    className="group cursor-pointer fixed top-3 right-3 z-10 flex size-7 items-center justify-center rounded-full ring-1 ring-border/50 hover:ring-border bg-muted/50 hover:bg-muted transition duration-200 ease-out text-foreground/75 hover:text-foreground"
+                    className="group cursor-pointer absolute top-3 right-3 z-10 flex size-7 items-center justify-center rounded-full ring-1 ring-border/50 hover:ring-border bg-muted/50 backdrop-blur-md hover:bg-muted transition duration-200 ease-out text-foreground/75 hover:text-foreground"
                   >
                     <CloseFill className="size-4 group-hover:scale-115 transition duration-200 ease-out" />
                   </button>
-                  <HoverPlayContext value={true}>
-                    <motion.div
-                      layoutId={`${id}-header`}
-                      transition={OPEN_TRANSITION}
-                      className="px-(--card-spacing) pr-12 **:data-[slot=card-description]:hidden"
-                    >
-                      {header}
-                    </motion.div>
+                  <div className="flex flex-col gap-(--card-gap) overflow-y-auto no-scrollbar py-(--card-spacing)">
+                    <HoverPlayContext value={true}>
+                      <motion.div
+                        layoutId={`${id}-header`}
+                        transition={OPEN_TRANSITION}
+                        className="px-(--card-spacing) pr-12 **:data-[slot=card-description]:hidden"
+                      >
+                        {header}
+                      </motion.div>
 
-                    <div className="grid gap-(--card-gap) px-(--card-spacing) sm:grid-cols-2 sm:items-start sm:gap-(--card-spacing)">
-                      {dialogDetails}
-                      {dialogMedia}
-                    </div>
-                  </HoverPlayContext>
+                      <div className="grid gap-(--card-gap) px-(--card-spacing) sm:grid-cols-2 sm:items-start sm:gap-(--card-spacing)">
+                        {dialogDetails}
+                        {dialogMedia}
+                      </div>
+                    </HoverPlayContext>
+                  </div>
                 </motion.div>
               </div>
             )}
