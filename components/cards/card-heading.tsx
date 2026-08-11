@@ -13,7 +13,7 @@ export default function CardHeading({
     <div className="grid auto-rows-min items-start gap-1">
       <CardTitle className="text-xl font-semibold">{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
-      <div className="flex flex-wrap gap-2.5 pt-2.5">{logos}</div>
+      <div className="flex flex-wrap gap-2 sm:gap-2.5 pt-2.5">{logos}</div>
     </div>
   );
 }
