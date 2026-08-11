@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 
 interface FlyInProps {
   children: React.ReactNode;
@@ -10,6 +11,8 @@ interface FlyInProps {
   distance?: number;
   perspective?: number;
   bounce?: number;
+  amount?: number;
+  once?: boolean;
 }
 
 export default function FlyIn({
@@ -20,17 +23,24 @@ export default function FlyIn({
   distance = 400,
   perspective = 1000,
   bounce = 0.3,
+  amount = 0.3,
+  once = true,
 }: FlyInProps) {
   const shouldReduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once, amount });
+
+  const hidden = shouldReduceMotion
+    ? { opacity: 0 }
+    : { opacity: 0, z: distance };
+  const visible = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, z: 0 };
 
   return (
-    <div style={{ perspective }} className={className}>
+    <div ref={ref} style={{ perspective }} className={className}>
       <motion.div
         className="h-full"
-        initial={
-          shouldReduceMotion ? { opacity: 0 } : { opacity: 0, z: distance }
-        }
-        animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, z: 0 }}
+        initial={hidden}
+        animate={inView ? visible : hidden}
         transition={
           shouldReduceMotion
             ? { delay, duration: 0.3, ease: "easeOut" }
