@@ -1,29 +1,86 @@
-import React from "react";
+"use client";
 
-interface SkillBadge {
-  icon: React.ReactElement;
-  name: string;
+import * as React from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "motion/react";
+
+import { cn } from "@/lib/utils";
+
+interface SkillBadgeProps {
+  icon: React.ReactElement<{ className?: string }>;
   color: string;
+  darkColor?: string;
+  name: string;
 }
 
-export default function SkillBadge({ icon, name, color }: SkillBadge) {
+const spring = { stiffness: 150, damping: 14 };
+
+export default function SkillBadge({
+  icon,
+  color,
+  darkColor = color,
+  name,
+}: SkillBadgeProps) {
+  const [hovered, setHovered] = React.useState(false);
+
+  // -0.5 (left edge) to 0.5 (right edge) of the badge
+  const position = useMotionValue(0);
+  const rotate = useSpring(useTransform(position, [-0.5, 0.5], [-10, 10]), spring);
+  const translateX = useSpring(
+    useTransform(position, [-0.5, 0.5], [-10, 10]),
+    spring,
+  );
+
+  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    position.set((event.clientX - bounds.left) / bounds.width - 0.5);
+  }
+
   return (
-    <div className="py-2 pl-2 pr-4 rounded-lg bg-muted/30 flex justify-start items-center gap-3 text-sm border border-border/50 group relative">
-      <div
-        className="absolute -z-20 inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-500 ease-out rounded-lg"
-        style={{
-          boxShadow: `0 0 10px 10px ${color}1A`,
-        }}
-      ></div>
-      <div
-        style={{ backgroundColor: color + "1A" }}
-        className={`p-[0.35rem] rounded-lg flex justify-center items-center opacity-95`}
-      >
+    <div
+      style={
+        {
+          "--skill-tint": `${color}1A`,
+          "--skill-tint-dark": `${darkColor}1A`,
+          "--skill-edge": `${darkColor}2A`,
+        } as React.CSSProperties
+      }
+      className="relative"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onMouseMove={handleMouseMove}
+    >
+      <div className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2">
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 6, scale: 0.85 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: { type: "spring", stiffness: 300, damping: 18 },
+              }}
+              exit={{ opacity: 0, y: 6, scale: 0.85 }}
+              style={{ rotate, translateX }}
+              className="rounded-sm border border-(--skill-edge) bg-zinc-900 text-white px-2 py-0.5 text-xs font-medium whitespace-nowrap  shadow-md"
+            >
+              {name}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      <div className="flex items-center justify-center rounded-lg bg-(--skill-tint) p-[0.35rem] opacity-95 transition-all duration-200 ease-out hover:scale-110 dark:bg-(--skill-tint-dark)">
         {React.cloneElement(icon, {
-          className: `size-6`,
+          className: cn("size-6", icon.props.className),
         })}
       </div>
-      <span className="text-foreground">{name}</span>
     </div>
   );
 }

@@ -1,0 +1,303 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.98 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(67% 0.22 35.7);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(67% 0.22 35.7);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-source-code-pro);
+  --font-heading: var(--font-inter);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* One training step: activations sweep forward, then gradients come back. */
+  --animate-edge-forward: edge-forward 4.4s linear infinite;
+  --animate-edge-backward: edge-backward 4.4s linear infinite;
+  --animate-node-flash: node-flash 4.4s ease-out infinite;
+
+  /* One kernel launch, on the same beat: each warp of a block executes, then
+     retires until the grid is relaunched. */
+  --animate-warp: warp 4.4s ease-out infinite;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-muted-foreground font-sans;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  /* Remove arrows from number inputs */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .heading-1 {
+    @apply font-semibold m-0 text-5xl text-foreground;
+  }
+  .heading-2 {
+    @apply font-semibold m-0 text-3xl text-foreground;
+  }
+  .heading-3 {
+    @apply font-semibold m-0 text-2xl text-foreground;
+  }
+  .heading-4 {
+    @apply font-semibold m-0 text-xl text-foreground;
+  }
+  .heading-5 {
+    @apply font-semibold m-0 text-sm text-foreground;
+  }
+  .heading-6 {
+    @apply font-semibold m-0 text-xs text-foreground;
+  }
+  .section {
+    @apply mx-auto w-full max-w-[68rem] px-5 py-12 sm:px-10 md:py-20;
+  }
+  .link {
+    @apply hover:text-foreground transition-all duration-200 ease-out cursor-pointer font-semibold underline;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+/* An edge lights up by filling in from its source end, then holds fully lit for
+   most of the activation. pathLength="100" on each edge normalises the dash, so
+   one full fill is an offset of 100 no matter how long the edge is; the
+   backward pass fills from the opposite end. */
+@keyframes edge-forward {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  5% {
+    stroke-dashoffset: 0;
+  }
+  13% {
+    opacity: 1;
+  }
+  16% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes edge-backward {
+  0% {
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  5% {
+    stroke-dashoffset: 0;
+  }
+  13% {
+    opacity: 1;
+  }
+  16% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes node-flash {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 1;
+  }
+  9% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* How lit a warp's threads are. Registered so it can be animated at all — an
+   unregistered custom property jumps between keyframes instead of
+   interpolating — and inherited so it reaches the thread cubes, which are drawn
+   once and instanced. The cubes mix this into an opaque fill rather than fading
+   their group's opacity, so a nearer cube occludes the one behind it instead of
+   blending with it. */
+@property --lit {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.07;
+}
+
+/* A warp of threads: idle until its block is dispatched, bright while it
+   executes, then a dimmer retired tone it holds until the grid relaunches.
+   Every warp in every block runs this one keyframe and differs only in
+   animation-delay, so the whole launch staggers off a single timeline — and
+   freezing them at those offsets is what draws the card's resting state. */
+@keyframes warp {
+  0%,
+  6% {
+    --lit: 0.07;
+  }
+  10%,
+  24% {
+    --lit: 0.5;
+  }
+  30%,
+  62% {
+    --lit: 0.2;
+  }
+  68%,
+  100% {
+    --lit: 0.07;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
