@@ -41,10 +41,13 @@ export function AutoVideo({
       loop
       muted
       playsInline
-      preload="auto"
+      preload="metadata"
       aria-hidden
       tabIndex={-1}
-      className={cn("size-full bg-muted object-cover border shadow shadow-zinc-900/5", className)}
+      className={cn(
+        "size-full bg-muted object-cover border shadow shadow-zinc-900/5",
+        className,
+      )}
       {...props}
     />
   );

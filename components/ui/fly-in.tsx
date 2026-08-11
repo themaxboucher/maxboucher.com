@@ -9,7 +9,7 @@ interface FlyInProps {
   duration?: number;
   distance?: number;
   perspective?: number;
-  blur?: string;
+  bounce?: number;
 }
 
 export default function FlyIn({
@@ -19,7 +19,7 @@ export default function FlyIn({
   duration = 0.9,
   distance = 400,
   perspective = 1000,
-  blur = "12px",
+  bounce = 0.3,
 }: FlyInProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -28,20 +28,17 @@ export default function FlyIn({
       <motion.div
         className="h-full"
         initial={
-          shouldReduceMotion
-            ? { opacity: 0 }
-            : { opacity: 0, z: distance, filter: `blur(${blur})` }
+          shouldReduceMotion ? { opacity: 0 } : { opacity: 0, z: distance }
         }
-        animate={
+        animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, z: 0 }}
+        transition={
           shouldReduceMotion
-            ? { opacity: 1 }
-            : { opacity: 1, z: 0, filter: "blur(0px)" }
+            ? { delay, duration: 0.3, ease: "easeOut" }
+            : {
+                default: { type: "spring", bounce, duration, delay },
+                opacity: { duration: duration * 0.5, ease: "easeOut", delay },
+              }
         }
-        transition={{
-          delay,
-          duration: shouldReduceMotion ? 0.3 : duration,
-          ease: [0.16, 1, 0.3, 1],
-        }}
         style={{ transformStyle: "preserve-3d" }}
       >
         {children}

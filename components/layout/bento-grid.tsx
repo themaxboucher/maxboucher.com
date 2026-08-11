@@ -14,19 +14,19 @@ export default function BentoGrid() {
             <FullstackCard />
           </FlyIn>
 
-          <FlyIn delay={0.2} className="md:col-span-5 h-full">
+          <FlyIn className="md:col-span-5 h-full">
             <EmbeddedCard />
           </FlyIn>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <FlyIn delay={0.4} className="h-full">
+          <FlyIn className="h-full">
             <ResearchCard />
           </FlyIn>
-          <FlyIn delay={0.6} className="h-full">
+          <FlyIn className="h-full">
             <MachineLearningCard />
           </FlyIn>
-          <FlyIn delay={0.8} className="h-full">
+          <FlyIn className="h-full">
             <GPUCard />
           </FlyIn>
         </div>
