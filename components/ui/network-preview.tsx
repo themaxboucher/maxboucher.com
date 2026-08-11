@@ -5,12 +5,11 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 import { HoverPlayContext } from "./hover-play-card";
-import { PreviewFrame } from "./preview-frame";
 
 const LAYER_SIZES = [4, 5, 5, 3];
 const LAYER_X = [32, 78, 124, 170];
-const NODE_GAP = 14;
-const NODE_R = 4.5;
+const NODE_GAP = 18;
+const NODE_R = 5;
 const MID_Y = 48;
 const HOP = 0.5; // seconds between one layer of edges and the next
 const ROW = 0.07; // seconds between one row of edges and the next
@@ -23,9 +22,6 @@ const BACKWARD_AT = 2.2; // when the gradients start back from the output
 const WEAKEST = 0.14;
 const STRONGEST = 0.72;
 
-// Both passes are the same primary now, so tone is the only thing left telling
-// them apart at a glance: a gradient is drawn at this fraction of the weight it
-// travels through, and reads as the quieter half of the step.
 const GRADIENT = 0.55;
 
 /**
@@ -116,18 +112,9 @@ const firesAt = layers.map((_, i) =>
 const live = "opacity-0 [stroke-dasharray:100_100] motion-reduce:animate-none";
 const flash = "opacity-0 motion-reduce:animate-none";
 
-// How long the step takes to settle once the pointer leaves.
-const FADE = 500;
 
-/**
- * Whether the step should be animating, which outlasts the hover by FADE so
- * there is still something lit to fade. Dropping the animation is what snaps
- * the step out — every property it was driving falls straight back to its
- * resting value, and a transition can't catch them on the way down, because a
- * removed animation leaves no before-value to transition from. So the animation
- * is left running underneath while the step fades over it, and only stops once
- * there is nothing left to see.
- */
+const FADE = 500; // How long the step takes to settle after hover out.
+
 function usePlaying(hovered: boolean) {
   const [playing, setPlaying] = React.useState(hovered);
 
@@ -144,8 +131,7 @@ function usePlaying(hovered: boolean) {
 }
 
 export function NetworkPreview() {
-  // The card owns the hover — the whole card is the target, not just the
-  // visual — and hands it down the same way it does to the video previews.
+  // The effect animates when the card is hovered on
   const hovered = React.useContext(HoverPlayContext) ?? false;
   const playing = usePlaying(hovered);
 
@@ -161,7 +147,7 @@ export function NetworkPreview() {
   const stepStyle = { transitionDuration: hovered ? "0ms" : `${FADE}ms` };
 
   return (
-    <PreviewFrame className="flex items-center">
+    <div className="flex h-full items-center justify-center">
       <svg
         // Cropped tight to the network so it fills the card at this density.
         viewBox="18 8 164 80"
@@ -170,21 +156,14 @@ export function NetworkPreview() {
         // screen units while pathLength normalises in user units, which leaves
         // every edge lighting up only part way. Widths are in user units, and
         // the viewBox scales 1:2.
-        className="h-40 w-full"
+        className="h-full w-full"
       >
         <g className="stroke-foreground/9" strokeWidth="0.5">
           {allEdges.map((edge, i) => (
             <path key={i} d={edge.d} />
           ))}
         </g>
-        {/* The lit edges ride their own group so they can fade as one, and stay
-            separate from the lit nodes so both keep their place in the paint
-            order: edges under the discs, flashes over them. */}
         <g className={step} style={stepStyle}>
-          {/* The activations, in the site's primary. Each is drawn at its own
-              edge's weight: stroke-opacity multiplies through the group opacity
-              the keyframe animates, so an edge fades in and out on the shared
-              beat but only ever reaches as bright as its weight is strong. */}
           {gaps.flatMap((gap, i) =>
             gap.rows.map((row, r) => (
               <g
@@ -209,11 +188,6 @@ export function NetworkPreview() {
               </g>
             )),
           )}
-          {/* Gradients come back a layer at a time, output first, every edge in
-              the layer at once. A gradient is scaled by the same weight it
-              travels through, so an edge carries its error signal at the
-              strength it carried the activation — a fraction of it, kept
-              quieter. */}
           {gaps.map((gap, i) => (
             <g
               key={`back-${i}`}
@@ -239,8 +213,6 @@ export function NetworkPreview() {
             </g>
           ))}
         </g>
-        {/* Opaque disc plus a ring of card background, so no edge crosses a
-            node or crowds it. */}
         <g className="fill-card stroke-card" strokeWidth="1.5">
           {nodes.map((node, i) => (
             <circle key={i} cx={node.x} cy={node.y} r={NODE_R} />
@@ -309,6 +281,6 @@ export function NetworkPreview() {
           })}
         </g>
       </svg>
-    </PreviewFrame>
+    </div>
   );
 }

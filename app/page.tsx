@@ -10,7 +10,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-radial from-transparent to-background/30" />
       <div className="absolute inset-0 bg-linear-to-t from-background to-transparent" />
       <Navbar />
-      <main>
+      <main className="mt-8 md:mt-0">
         <BentoGrid />
       </main>
       <Footer />

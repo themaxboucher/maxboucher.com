@@ -21,9 +21,6 @@ const SOURCE = `__global__ void matmul_tiled_kernel(float* C, const float* A, co
     }
 }`;
 
-// GitHub's own two syntax themes, light first and dark behind the `dark:`
-// variant. Written out in full rather than built from a palette object, because
-// Tailwind only generates the utilities it can find as literal strings.
 const COMMENT = "text-[#6e7781] dark:text-[#8b949e]";
 const KEYWORD = "text-[#cf222e] dark:text-[#ff7b72]";
 const BUILTIN = "text-[#0550ae] dark:text-[#79c0ff]";
@@ -76,18 +73,17 @@ export function CodePreview({ className }: { className?: string }) {
     <div
       aria-hidden
       className={cn(
-        "relative mt-2 -mr-(--card-spacing) min-h-48 flex-1 overflow-hidden -px-(--card-spacing)",
+        "relative mt-2 -mr-(--card-spacing) min-h-42 overflow-hidden mask-b-from-75%",
         className,
       )}
     >
-      <div className="absolute z-10 bg-linear-to-t from-card to-transparent h-16 w-full inset-x-0 bottom-0"></div>
-      <div className="absolute top-2 left-6 overflow-hidden rounded-tl-lg bg-white ring-1 ring-[#d0d7de] shadow dark:bg-[#0d1117] dark:ring-[#30363d]">
-        <div className="border-b border-[#d0d7de] bg-[#f6f8fa] px-3 py-1.5 dark:border-[#21262d] dark:bg-[#161b22]">
-          <span className="font-mono text-[10px] leading-none text-[#6e7781] dark:text-[#8b949e]">
+      <div className="absolute top-2 left-6 overflow-hidden rounded-md bg-white ring-1 ring-[#d0d7de] shadow group-hover/card:-translate-y-1.5 group-hover/card:-translate-x-1 hover:shadow-xl transition duration-200 ease-out dark:bg-[#0d1117] dark:ring-[#30363d]">
+        <div className="border-b border-[#d0d7de] bg-[#f6f8fa] px-2.5 pb-1 pt-0.5 dark:border-[#21262d] dark:bg-[#161b22]">
+          <span className="font-mono text-[8px] leading-none text-[#6e7781] dark:text-[#8b949e]">
             {FILE_NAME}
           </span>
         </div>
-        <pre className="px-3.5 py-3 text-[11px] leading-[1.75] whitespace-pre">
+        <pre className="px-3.5 py-3 text-[10px] leading-[1.75] whitespace-pre">
           <code>
             {tokenize(SOURCE).map((token, i) => (
               <span key={i} className={token.cls}>

@@ -5,7 +5,7 @@ import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
 
 export default function Navbar() {
   return (
-    <header className="py-4 sm:py-6 px-5 sm:px-8 flex justify-between items-center absolute lg:fixed z-20 inset-x-0 top-0">
+    <header className="py-4 sm:py-6 px-5 sm:px-8 flex justify-between items-center absolute lg:fixed z-20 inset-x-0 top-0 pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
       <Logo />
       <div>
         <ul className="flex justify-start items-center gap-2.5">

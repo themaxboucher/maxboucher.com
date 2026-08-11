@@ -22,7 +22,6 @@ interface ExpandableCardProps {
 }
 
 const HOVER_SCALE = 1.02;
-// Springy enough to overshoot slightly before settling.
 const HOVER_TRANSITION = {
   type: "spring",
   stiffness: 500,
@@ -30,8 +29,11 @@ const HOVER_TRANSITION = {
   mass: 0.8,
 } as const;
 
-// Shared-layout morph from card to dialog, overshooting slightly on arrival.
-const OPEN_TRANSITION = { type: "spring", bounce: 0.3, duration: 0.55 } as const;
+const OPEN_TRANSITION = {
+  type: "spring",
+  bounce: 0.3,
+  duration: 0.55,
+} as const;
 
 export function ExpandableCard({
   id,
@@ -68,38 +70,38 @@ export function ExpandableCard({
     <motion.div
       layoutId={`${id}-media`}
       transition={OPEN_TRANSITION}
-      className={mediaClassName}
+      className={cn("min-h-0 flex-1", mediaClassName)}
     >
       {media}
     </motion.div>
   );
 
+  const mediaFirst = orientation === "media-first";
+
   const headerBlock = (
     <motion.div
       layoutId={`${id}-header`}
       transition={OPEN_TRANSITION}
-      className="px-(--card-spacing)"
+      className={cn("px-(--card-spacing)", mediaFirst && "md:order-2")}
     >
       {header}
     </motion.div>
   );
 
-  const face =
-    orientation === "media-first" ? (
-      <>
-        <div className="flex flex-1 flex-col px-(--card-spacing)">
-          {mediaBlock}
-        </div>
-        {headerBlock}
-      </>
-    ) : (
-      <>
-        {headerBlock}
-        <div className="flex flex-1 flex-col px-(--card-spacing)">
-          {mediaBlock}
-        </div>
-      </>
-    );
+  // Below `md` the header always comes first; `media-first` only kicks in from `md` up.
+  const face = (
+    <>
+      {headerBlock}
+      <div
+        className={cn(
+          "h-full flex flex-col justify-between px-(--card-spacing)",
+          mediaFirst && "md:order-1",
+        )}
+      >
+        {mediaBlock}
+      </div>
+    </>
+  );
 
   const dialogMedia = (
     <motion.div
@@ -135,15 +137,13 @@ export function ExpandableCard({
         animate={{ scale }}
         transition={HOVER_TRANSITION}
         className={cn(
-          "relative cursor-pointer select-none",
+          "h-full relative cursor-pointer select-none",
           hovered && !open && "z-10",
           className,
         )}
       >
         <motion.div
           layoutId={`${id}-card`}
-          // Hidden while the dialog stands in for it — via opacity, not
-          // `visibility`, which would stop motion morphing it back on close.
           animate={{ opacity: open ? 0 : 1 }}
           transition={{ ...OPEN_TRANSITION, opacity: { duration: 0 } }}
           className="h-full group/card flex flex-col gap-(--card-gap) shadow hover:shadow-lg transition-[box-shadow,--tw-gradient-from,--tw-gradient-to] duration-300 ease-out shadow-zinc-900/5 ring-1 ring-border/70 hover:ring-border rounded-3xl overflow-hidden bg-linear-to-br from-card/70 hover:from-card to-card/60 hover:to-card/70 backdrop-blur-sm py-(--card-spacing) text-sm text-card-foreground [--card-gap:--spacing(5)] [--card-spacing:--spacing(5)]"
@@ -157,9 +157,6 @@ export function ExpandableCard({
       {opened &&
         createPortal(
           <>
-            {/* Only the backdrop lingers to fade out. The dialog unmounts at once
-                so motion morphs the card itself back out of the dialog's box,
-                instead of crossfading two elements. */}
             <AnimatePresence onExitComplete={() => setOpened(false)}>
               {open && (
                 <motion.div
@@ -185,9 +182,9 @@ export function ExpandableCard({
                     type="button"
                     onClick={() => setOpen(false)}
                     aria-label="Close"
-                    className="cursor-pointer absolute top-5 right-5 z-10 flex size-8 items-center justify-center rounded-full bg-foreground/5 text-muted-foreground ring-1 ring-foreground/10 backdrop-blur transition-colors hover:bg-foreground/10 hover:text-foreground"
+                    className="group cursor-pointer fixed top-3 right-3 z-10 flex size-7 items-center justify-center rounded-full ring-1 ring-border/50 hover:ring-border bg-muted/50 hover:bg-muted transition duration-200 ease-out text-foreground/75 hover:text-foreground"
                   >
-                    <CloseFill />
+                    <CloseFill className="size-4 group-hover:scale-115 transition duration-200 ease-out" />
                   </button>
                   <HoverPlayContext value={true}>
                     <motion.div
