@@ -24,11 +24,7 @@ export default function Navbar() {
             />
           </li>
           <li>
-            <IconLink
-              href="https://drive.google.com/file/d/1H7409USL8zmPCu1lcsioViUcJWMpcpSU/view?usp=sharing"
-              name="Resume"
-              icon={<DocumentFill />}
-            />
+            <IconLink href="/resume" name="Resume" icon={<DocumentFill />} />
           </li>
           <div className="h-6 min-w-0.5 bg-border rounded-2xl"></div>
           <li>
