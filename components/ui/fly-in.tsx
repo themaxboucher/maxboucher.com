@@ -20,7 +20,7 @@ export default function FlyIn({
   className,
   delay = 0,
   duration = 0.9,
-  distance = 400,
+  distance = 250,
   perspective = 1000,
   bounce = 0.3,
   amount = 0.3,
